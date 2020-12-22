@@ -1,0 +1,157 @@
+<%- include("../partials/header") %>
+  <div class="container">
+    <header class="jumbotron jump">
+      <div class="container">
+        <h1 style="font-size:5rem">Welcome to Event Mania!!</h1>
+        <p class="lead">View our hand-picked Venues from all over the world :) </p>
+        <hr>
+        <h2> Get more bookings through us</h2>
+
+        <p class="lead"> 95% of All event organizers use the Internet to find a venue - We can make sure they come to
+          you! Do you have a banquet hall, restaurant, coffee shop, or any other venue that could get more bookings? Add
+          your place on our website "EVENT MANIA" and We will help you find new customers with no monthly or annual
+          fees.</p>
+        <a class="btn btn-success btn-lg" href="/campgrounds/new"> Add a Venue </a>
+      </div>
+
+    </header>
+    <br><br>
+    <hr>
+    <h1 class="text-center"> <strong>Our Services</strong> </h1>
+
+
+    <div class=" row">
+      <div class=" col-lg-3 col-md-4 col-sm-6 py-4">
+
+        <div class="card text-white bg-success  border-dark " style="width: 17rem;">
+          <img class="card-img-top"
+            src="https://assets.venuu.se/assets/v2/index/featured/feature-juhlatilat-c8e296e0c5ee7787015da6d5bf78abdc2d8b612eeff9fc29a15c349509d33f1f.jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Party</h5>
+            <p class="card-text"> Birthday, anniversary or any other reason to throw a party? We help you to find
+              the best place for an unforgettable bash!
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+
+      <div class=" col-lg-3 col-md-4 col-sm-6 py-4 ">
+        <div class="card text-white bg-danger border-dark" style="width: 17rem;">
+          <img class="card-img-top"
+            src="https://assets.venuu.se/assets/v2/index/featured/feature-haatilat-048f64eb6fe5a8cc9c01ab4ca756cb38f9764302f36c849f02da48a9682d84d9.jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Wedding</h5>
+            <p class="card-text"> Your dream wedding needs the perfect venue - whether it is in a mansion, a banquet
+              hall or an old factory!
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-lg-3 col-md-4 col-sm-6 py-4">
+        <div class="card text-white bg-warning border-dark" style="width: 17rem;">
+          <img class="card-img-top"
+            src="https://assets.venuu.se/assets/v2/index/featured/feature-saunatilat-22181ee416ee4e7358320107709ae7182f7ea1f5b4dcc007936b09f70c338837.jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Sauna &amp; Spa</h5>
+            <p class="card-text"> Sauna evening? Find the perfect place for you: perhaps one
+              that allows you to bring your own beverages?
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 py-4">
+        <div class="card text-white bg-info border-dark" style="width: 17rem;">
+          <img class="card-img-top"
+            src="https://assets.venuu.se/assets/v2/index/featured/feature-kokoustilat-fd6c688864829dba01f5acf8feb3b17947573ee4a901d5f3f6664a18232a874a.jpg"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> Meeting</h5>
+            <p class="card-text"> Meeting or a workshop in a cafe, or a seminar in a theater? Find a functional space to
+              boost your creativity!
+            </p>
+            
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <br><br>
+    <hr>
+
+    <div class="row" id="view">
+      <div class="col-lg-12 my-4">
+        <h1 class="text-center"> <strong>Our Most Popular Venues!!</strong> </h1>
+        <br>
+        <h2> Find a place fast & easy</h2>
+
+        <p class="lead"> Whether you're organizing a corporate event or a private party, EVENT MANIA has a wide
+          selection of amazing event spaces with pictures and all the information you need. In addition to regular
+          settings, we have many unconventional venues to make your day truly unique!</p>
+      </div>
+    </div>
+    <div class="row text-center">
+      <% campgrounds.forEach(function(campgrounds){ %>
+        <div class="col-md-4 col-sm-6 py-4">
+          <div class="card border-dark" style="width: 18rem;">
+            <img src="<%= campgrounds.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= campgrounds.name %>
+              </h5>
+            </div>
+            <p>
+              <a href="campgrounds/<%= campgrounds._id %>" class="btn btn-primary">More Info</a>
+            </p>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+  </div>
+
+  <hr>
+  <br> <br>
+  <div class="card  bg-dark mb-3 mx-auto text-white" id="hello" style="max-width: 570px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img class="my-4 mx-4" src="WhatsApp Image 2020-12-10 at 1.18.12 PM.jpg" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Contact Us</h5>
+          <p class="card-text"> Hello and welcome, nice to see you here! Do you own a great venue, and think that
+            everyone should know
+            about it? <a href="../campgrounds/new">Register</a> above or contact me and I&#39;ll help you further!</p>
+          <p class="card-text mt-4 ml-1">
+          <div class="text-center ">
+            <a href="https://www.instagram.com/bhardwajpriyanshu1208/" class="btn-outline-danger btn mr-4">
+              <i class="fa fa-instagram fa-large "></i> Instagram </a>
+            <a href="https://www.facebook.com/people/Vishal-Bhardwaj/100018887371554" class=" btn-outline-primary btn ml-2">
+              <i class="fa fa-facebook fa-large"></i> Facebook </a>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+
+
+  <footer>
+    <div class="text-center"> &copy; Copyright 2020 Event Mania</div>
+  </footer>
+
+
+
+  <%- include("../partials/footer") %>

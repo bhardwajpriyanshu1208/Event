@@ -1,0 +1,75 @@
+<%- include("../partials/header") %>
+
+<div class="container mt-4 " style="border-radius: 1%">
+    <div class="row">
+        <div class="col-md-3 "> <div  class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden"> </span> </div> <strong> <p class="lead">Event Mania</p>
+            </strong>
+            <div class="list-group ">
+                <div class="list-group-item lead"> <h4>Reach customers</h4>
+                    Event Mania helps you reach private and corporate event organizers cost-effectively. By adding photos, videos and 3D-tours, you can convince new customers who are not yet familiar with your venue!</div>
+                <div class="list-group-item lead"><h4>Ensure that you are found online</h4>Online marketing is a form of art we know. Different campaigns, search engine optimization, and continuous presence in the media ensure that your venue gets more visibility.</div>
+                <div class="list-group-item lead"><h4>Join now</h4> Adding your space to Event Mania is simple and convenient. Please contact Our sales service to learn more about working with us! </div>
+            </div>
+
+        </div>
+        
+        <div class="col-md-9 text-white bg-dark mb-3 px-0 " style="border-radius: 1%">
+            <div class="card text-white bg-dark">
+                <img class="img-responsive" src="<%= campground.image %>" alt="">
+                <div class="caption-full">
+                
+                    
+                    <div class="card-body">
+                        <h5 class="float-right">Rs.<%= campground.price %></h5>
+                        <h5 class="card-title"><%= campground.name %></h5> 
+                        <p style="padding-left:20px; padding-top: 0px;">
+                            <%= campground.description %></p>
+                    <!-- <h1><%= currentUser %></h1>  -->
+                    
+                    </div>
+                   <p style="padding-left:20px;  padding-top: 20px;"> <em>Submitted by <%= campground.author.username %></em></p>
+                   
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                    <a class=" btn-lg btn-warning " href="<%= campground._id %>/edit"> <strong> Edit</strong>
+                    </a>
+                    <form id="delete-form" action="/campgrounds/<%= campground._id%>?_method=DELETE%>" method="POST">
+                        <button class="btn btn-danger btn-xs"> <strong>Delete</strong> </button>
+                    </form>
+                    <% } %>
+                </div>
+                <hr>
+                <hr>
+                <div class="card bg-dark text-white p-3" >
+                    <div class="text-right">
+                       
+             <a href="/campgrounds" class="btn btn-info"> Back </a>
+             <a class="btn btn-success float-left" href="/campgrounds/<%= campground._id %>/comments/new"> Add New
+                            Comment</a>
+                    </div>
+                    <hr> 
+                    <% campground.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong> <%= comment.author.username  %> </strong>
+                            <span class="float-right"> 10 Days Ago</span>
+                            <p>
+                                <%= comment.text  %>
+                            </p>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                          <a class="btn btn-xss btn-warning" href="/campgrounds/<%=campground._id%>/comments/<%= comment._id%>/edit"><strong>Edit</strong> </a>
+                          <form id="delete-form-comment" action="/campgrounds/<%=campground._id%>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+                          <button class="btn btn-xss btn-danger" ><strong>Delete</strong></button>
+                          </form>
+                          <% } %>
+                        </div>
+                    </div>   
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- </div class=""><p> <strong>Comments</strong> </p></div> -->
+
+    <%- include("../partials/footer") %>
